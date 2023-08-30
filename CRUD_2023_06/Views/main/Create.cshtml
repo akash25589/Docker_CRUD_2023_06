@@ -1,0 +1,81 @@
+﻿@model CRUD_2023_06.Models.MyFruits
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<form method="post" asp-action="Create">
+    <h2>@ViewBag.mymessage</h2>
+
+    <div class="border p-3">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group row">
+            <h2 class="text-info pl-3">Add Fruits Data</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-8">
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label>Fruits Name</label>
+
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="fruitname" class="form-control" />
+
+
+                      @*  <select asp-for="fruitname" asp-items="@(new SelectList( ViewBag.message,"FruitName","FruitName"))" class="form-control">
+                            <option selected disabled>--Select Fruits--</option>
+                       </select>*@
+                        <span asp-validation-for="fruitname" class="text-danger"></span>
+
+                    </div>
+
+                </div>
+                <br />
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label>Quantity</label>
+
+                    </div>
+                    <div class="col-8">
+                        <input  asp-for="fruitquantity" class="form-control" />
+
+                    </div>
+
+                </div>
+                <br />
+                <div class="form-group row">
+                    <div class="col-8 offset-4 row">
+                        <div class="col">
+                            <input type="submit" class="btn btn-info w-100" value="Create" />
+
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-success w-100">Back</a>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</form>
+
+@section scripts
+    {
+
+
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.js"></script>
+
+
+
+}

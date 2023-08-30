@@ -1,0 +1,58 @@
+﻿@model CRUD_2023_06.Models.MyFruits
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<form method="post">
+    <input asp-for="Id" hidden />
+    <div class="border p-3">
+        <div class="form-group p-3">
+           <h2 class="text-info pl-3">Edit Fruits</h2>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label>Fruit Name</label>
+
+                    </div>
+                    <div class="col-8">
+@*                        <input asp-for="fruitname" class="form-control" />
+*@
+                        <select asp-for="fruitname" asp-items="@(new SelectList( ViewBag.message,"FruitName","FruitName"))" class="form-control">
+                            <option selected disabled>--Select Fruits--</option>
+                        </select>
+                        <span asp-validation-for="fruitname" class="text-danger"></span>
+                    </div>
+                </div>
+                <br />
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label>Quantity</label>
+
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="fruitquantity" class="form-control" />
+                    </div>
+                </div>
+                <br />
+                <div class="form-group row">
+                    <div class="col-8 offset-4 row">
+                        <div class="col">
+                            <input type="submit" class="btn btn-info w-100" value="Update"/>
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-success w-100">Back</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</form>
